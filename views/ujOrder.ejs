@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://jsdelivr.net" rel="stylesheet">
+</head>
+<body class="bg-light py-5">
+    <div class="container text-center" style="max-width: 600px;">
+        <div class="card shadow-sm p-5 mt-5">
+            <h1 class="text-success fw-bold mb-3">✓ Sikeres rendelés!</h1>
+            <p class="lead">Köszönjük a vásárlást, <strong><%= customerName %></strong>!</p>
+            <p class="text-muted">A rendelésedet sikeresen rögzítettük az adatbázisban.</p>
+            <a href="/views/index.ejs" class="btn btn-primary mt-4">Vissza a főoldalra</a>
+        </div>
+    </div>
+</body>
+</html>

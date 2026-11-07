@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+   
+    <link href="https://jsdelivr.net" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body class="bg-light py-5">
 
-    <div class="container main-container">
+    <div class="container main-container" style="max-width: 900px;">
         <h1 class="text-center mb-4 text-primary fw-bold"><%= title %></h1>
         
-
-        <form id="orderForm">
+        
+        <form id="orderForm" action="/ujOrder" method="POST">
             
             
             <div class="card shadow-sm mb-4">
@@ -20,34 +22,23 @@
                     <h2 class="card-title h4 mb-3 text-secondary">1. Válassz terméket</h2>
                     <div class="row g-3">
                         
-                        <!-- 1. Autó -->
-                        <div class="col-md-4">
+                       
+                        <div class="col-md-6">
                             <div class="product-card">
-                                <input type="radio" class="btn-check" id="auto1" name="optradio" value="byd_seagull" checked>
-                                <label class="btn btn-outline-light p-0 w-100 h-100 overflow-hidden" for="auto1">
-                                    <img src="https://i0.wp.com/e-cars.hu/wp-content/uploads/2023/04/byd-seagull-specs.jpg?resize=696%2C457&ssl=1" alt="BYD Seagull" class="img-fluid product-image">
-                                    <div class="p-2 text-dark fw-semibold text-center bg-white border-top">BYD Seagull</div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- 2. Autó -->
-                        <div class="col-md-4">
-                            <div class="product-card">
-                                <input type="radio" class="btn-check" id="auto2" name="optradio" value="benz_patent">
+                                <input type="radio" class="btn-check" id="auto2" name="optradio" value="benz_patent" checked>
                                 <label class="btn btn-outline-light p-0 w-100 h-100 overflow-hidden" for="auto2">
-                                    <img src="https://vezess2.p3k.hu/app/uploads/2011/04/44851_348460_1000x700.jpg-700x467.jpg" alt="Benz Patent" class="img-fluid product-image">
+                                    <img src="https://vezess2.p3k.hu/app/uploads/2011/04/44851_348460_1000x700.jpg-700x467.jpg" alt="Benz Patent" class="img-fluid" style="height: 180px; object-fit: cover; width:100%;">
                                     <div class="p-2 text-dark fw-semibold text-center bg-white border-top">Benz Patent-Wagen</div>
                                 </label>
                             </div>
                         </div>
 
-                        <!-- 3. Autó -->
-                        <div class="col-md-4">
+                        
+                        <div class="col-md-6">
                             <div class="product-card">
                                 <input type="radio" class="btn-check" id="auto3" name="optradio" value="dacia_duster">
                                 <label class="btn btn-outline-light p-0 w-100 h-100 overflow-hidden" for="auto3">
-                                    <img src="https://exportimg.hasznaltautocdn.com/2048x1536/1178/23559682/31716924/watermark=0/95189fc8f97fd253a03741365b64e13534cfe73b226a111213b6b6d381c2250e.jpg" alt="Dacia Duster" class="img-fluid product-image">
+                                    <img src="https://exportimg.hasznaltautocdn.com/2048x1536/1178/23559682/31716924/watermark=0/95189fc8f97fd253a03741365b64e13534cfe73b226a111213b6b6d381c2250e.jpg" alt="Dacia Duster" class="img-fluid" style="height: 180px; object-fit: cover; width:100%;">
                                     <div class="p-2 text-dark fw-semibold text-center bg-white border-top">Dacia Duster</div>
                                 </label>
                             </div>
@@ -64,23 +55,28 @@
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label for="customerName" class="form-label fw-medium">Teljes név</label>
-                            <input type="text" class="form-control" id="customerName" placeholder="Pl. Teszt Elek" required>
+                           
+                            <input type="text" class="form-control" id="customerName" name="customerName" placeholder="Pl. Teszt Elek" required>
                         </div>
                         <div class="col-md-6">
                             <label for="phoneInput" class="form-label fw-medium">Telefonszám</label>
-                            <input type="text" class="form-control" id="phoneInput" placeholder="+36-xx-xxx-xxxx" required>
+                            
+                            <input type="text" class="form-control" id="phoneInput" name="phoneInput" placeholder="+36301234567" required>
                         </div>
                         <div class="col-md-6">
                             <label for="billingAddress" class="form-label fw-medium">Számlázási cím</label>
-                            <input type="text" class="form-control" id="billingAddress" placeholder="Város, Irányítószám, Utca, Házszám" required>
+                            
+                            <input type="text" class="form-control" id="billingAddress" name="billingAddress" placeholder="Budapest, 1051, Erzsébet tér 3" required>
                         </div>
                         <div class="col-md-6">
                             <label for="shippingAddress" class="form-label fw-medium">Szállítási cím</label>
-                            <input type="text" class="form-control" id="shippingAddress" placeholder="Város, Irányítószám, Utca, Házszám" required>
+                            
+                            <input type="text" class="form-control" id="shippingAddress" name="shippingAddress" placeholder="Budapest, 1051, Erzsébet tér 3" required>
                         </div>
                         <div class="col-md-12">
                             <label for="couponInput" class="form-label fw-medium">Kuponkód (Opcionális)</label>
-                            <input type="text" class="form-control" id="couponInput" placeholder="BB-SSSS formátum (pl. PT-1255)">
+                            
+                            <input type="text" class="form-control" id="couponInput" name="coupon" placeholder="PT-1255">
                         </div>
                     </div>
                 </div>
@@ -93,25 +89,27 @@
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label for="creditCardInput" class="form-label fw-medium">Kártyaszám</label>
-                            <input type="text" class="form-control" id="creditCardInput" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+                            
+                            <input type="text" class="form-control" id="creditCardInput" name="creditCard" placeholder="1234-1234-1234-1234" required>
                         </div>
                         <div class="col-md-3">
                             <label for="expiryInput" class="form-label fw-medium">Lejárat</label>
-                            <input type="text" class="form-control" id="expiryInput" placeholder="HH/ÉÉ" required>
+                            
+                            <input type="text" class="form-control" id="expiryInput" name="expiryDate" placeholder="12/28" required>
                         </div>
                         <div class="col-md-3">
                             <label for="securityInput" class="form-label fw-medium">CVC / CVC2</label>
-                            <input type="text" class="form-control" id="securityInput" placeholder="3 számjegy" required>
+                            
+                            <input type="text" class="form-control" id="securityInput" name="securityCode" placeholder="321" required>
                         </div>
                     </div>
                 </div>
             </div>
 
-            
             <div class="d-grid gap-2 col-md-6 mx-auto mt-4">
                 <button type="submit" class="btn btn-primary btn-lg shadow-sm fw-bold py-3">Rendelés Elküldése</button>
             </div>
-
+            
         </form>
     </div>
 

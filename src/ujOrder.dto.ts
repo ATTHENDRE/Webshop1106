@@ -4,7 +4,7 @@ export class UjOrderDto {
     customerName: string;
     billingAddress: string;
     shippingAddress: string;
-    phone: string;
+    phoneInput: string;
     coupon: string;
     creditCard: string;
     expiryDate: string;
